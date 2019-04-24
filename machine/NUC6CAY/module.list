@@ -26,6 +26,7 @@ module btbcm
 module btintel
 module crct10dif-pclmul
 module sdhci
+module soundcore
 module psmouse
 module bluetooth
 module crc32-pclmul
