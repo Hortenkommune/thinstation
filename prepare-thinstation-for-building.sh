@@ -12,6 +12,6 @@ IFS=' '
 read -ra ADDR <<< "$ahref"
 tarbLink="${ADDR/"//"/"https://"}" 
 wget ${tarbLink} -O /thinstaion/downloads/$icafilename
-
+pause
 cd /thinstation/
 ./setup-chroot -b -o --autodl
