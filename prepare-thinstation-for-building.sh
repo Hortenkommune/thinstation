@@ -2,7 +2,7 @@
 git clone --depth 1 git://github.com/Hortenkommune/thinstation /prepare
 cp -a /prepare/machine/. /thinstation/ts/build/machine/
 cp -a /prepare/conf/thinstation.conf.buildtime /thinstation/ts/build/thinstation.conf.buildtime
-paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) > 
+paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
 cat /prepare/conf/build.conf /data/url.conf /data/secret > /thinstation/ts/build/build.conf.example
 icabuildurl=$(cat /thinstation/ts/build/build.urls | grep "linuxx")
