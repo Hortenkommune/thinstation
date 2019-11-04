@@ -23,7 +23,7 @@ wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cp -a /$cert/$intcert /$basepath/$keystore/intcerts/
 cp -a /$cert/$cacert /$basepath/$keystore/cacerts/
 cd /$basepath/
-./setup-chroot -b -o --autodl
+./setup-chroot -b -o --autodl --allmodules
 #./$icaroot/utils/
 #./setup-chroot -b -o --autodl --noimages
 cp -a /$bootimages/iso/*.iso /data/boot-images/iso
