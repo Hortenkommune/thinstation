@@ -5,7 +5,7 @@ cert=data/cert
 intcert=horten.pem
 cacert=digica.pem
 bootimages=thinstation/build/boot-images
-keystore=ts/build/packages/ica/opt/Citrix/ICAClient/keystore
+keystore=ts/build/packages/ica/build/extra/opt/Citrix/ICAClient/keystore/cacerts
 icaroot=ts/build/packages/ica/opt/Citrix/ICAClient
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 cp -a /$prep/machine/. /$basepath/ts/build/machine/
