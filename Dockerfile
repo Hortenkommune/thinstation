@@ -1,4 +1,5 @@
 FROM docker.io/library/centos:latest
+USER root
 RUN yum -y update  \
     && yum -y install bash \
     && yum -y install git \
