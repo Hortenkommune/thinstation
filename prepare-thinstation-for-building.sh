@@ -1,7 +1,12 @@
 #!/bin/bash
 basepath=thinstation
 prep=prepare
+cert=data/cert
+intcert=horten.pem
+cacert=digica.pem
 bootimages=thinstation/build/boot-images
+keystore=build/packages/ica/opt/Citrix/ICAClient/keystore
+icaroot=build/packages/ica/opt/Citrix/ICAClient
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 cp -a /$prep/machine/. /$basepath/ts/build/machine/
 cp -a /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime
@@ -15,7 +20,11 @@ IFS=' '
 read -ra ADDR <<< "$ahref"
 tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
+cp -a /$cert/$intcert /$basepath/$keystore/intcerts/
+cp -a /$cert/$cacert /$basepath/$keystore/cacerts/
 cd /$basepath/
-./setup-chroot -i 
+./setup-chroot -b -o --autodl
+#./$icaroot/utils/
+#./setup-chroot -b -o --autodl --noimages
 cp -a /$bootimages/iso/*.iso /data/boot-images/iso
-cp -a /$bootimages/pxe/. /data/boot-images/pxe
+cp -a /$bootimages/pxe/. /data/boot-images/iso
