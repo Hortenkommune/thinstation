@@ -1,6 +1,7 @@
 #!/bin/bash
 basepath=thinstation
 prep=prepare
+bootimages=thinstation/build/boot-images
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 cp -a /$prep/machine/. /$basepath/ts/build/machine/
 cp -a /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime
@@ -16,3 +17,5 @@ tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cd /$basepath/
 ./setup-chroot -b -o --autodl
+cp -a /$bootimages/iso/*.iso /data/boot-images/iso
+cp -a /$bootimages/pxe/. /data/boot-images/pxe
