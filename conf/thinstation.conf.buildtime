@@ -25,15 +25,14 @@ XTERM_CMD="xfce4-terminal"
 NET_USE=BOTH
 NET_USE_DHCP=on
 NET_HOSTNAME=ts_*
-NET_TELNETD_ENABLED=ON
-TIME_ZONE=America/Los_Angeles
-NET_TIME_SERVER=us.pool.ntp.org
+TIME_ZONE=Europe/Oslo
+NET_TIME_SERVER=0.pool.ntp.org
 NET_REMOTE_ACCESS_FROM="0.0.0.0"
 TFTP_BLOCKSIZE=1024
 BIND_MOUNT0="storage:/mnt/storage"
 STORAGE_CONFIG1=/mnt/storage
 USB_STORAGE_SYNC=on
-LOCALE=en_US
+LOCALE=nb_NO
 MOUNT_0="LABEL=boot     /boot           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
