@@ -2,8 +2,7 @@
 basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
-keystore=ts/build/packages/ica/build/extra/opt/Citrix/ICAClient/keystore
-icaroot=ts/build/packages/ica/opt/Citrix/ICAClient
+rm -rf /$prep
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/
 cp -TR /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime
@@ -22,4 +21,3 @@ cd /$basepath/
 cp -TR /$bootimages/iso/*.iso /data/boot-images/iso/
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe
 cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
-rm -rf /$prep
