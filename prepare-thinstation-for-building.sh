@@ -20,12 +20,10 @@ IFS=' '
 read -ra ADDR <<< "$ahref"
 tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
-cp -a /$cert/$intcert /$basepath/$keystore/intcerts/
-cp -a /$cert/$cacert /$basepath/$keystore/cacerts/
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules
 #./$icaroot/utils/
 #./setup-chroot -b -o --autodl --noimages
-cp -a /$bootimages/iso/*.iso /data/boot-images/iso
-cp -a /$bootimages/pxe/. /data/boot-images/pxe
-cp -a /$bootimages/syslinux/. /data/boot-images/syslinux
+cp /$bootimages/iso/*.iso /data/boot-images/iso 
+cp /$bootimages/pxe/. /data/boot-images/pxe
+cp /$bootimages/syslinux/. /data/boot-images/syslinux
