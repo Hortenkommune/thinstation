@@ -28,3 +28,4 @@ cd /$basepath/
 #./setup-chroot -b -o --autodl --noimages
 cp -a /$bootimages/iso/*.iso /data/boot-images/iso
 cp -a /$bootimages/pxe/. /data/boot-images/pxe
+cp -a /$bootimages/syslinux/. /data/boot-images/syslinux
