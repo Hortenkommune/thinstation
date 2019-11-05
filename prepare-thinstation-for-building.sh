@@ -21,9 +21,7 @@ read -ra ADDR <<< "$ahref"
 tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cd /$basepath/
-./setup-chroot -b -o --autodl --allmodules
-#./$icaroot/utils/
-#./setup-chroot -b -o --autodl --noimages
+./setup-chroot -b -o --autodl
 cp /$bootimages/iso/*.iso /data/boot-images/iso 
 cp /$bootimages/pxe/. /data/boot-images/pxe
 cp /$bootimages/syslinux/. /data/boot-images/syslinux
