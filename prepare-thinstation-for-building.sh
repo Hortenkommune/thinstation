@@ -22,6 +22,7 @@ tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cd /$basepath/
 ./setup-chroot -b -o --autodl
-cp /$bootimages/iso/*.iso /data/boot-images/iso 
-cp /$bootimages/pxe/. /data/boot-images/pxe
-cp /$bootimages/syslinux/. /data/boot-images/syslinux
+
+y | cp -TR /$bootimages/iso/*.iso /data/boot-images/iso 
+y | cp -TR /$bootimages/pxe/. /data/boot-images/pxe
+cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
