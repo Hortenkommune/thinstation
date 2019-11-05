@@ -23,6 +23,6 @@ wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cd /$basepath/
 ./setup-chroot -b -o --autodl
 
-y | cp -TR /$bootimages/iso/*.iso /data/boot-images/iso 
-y | cp -TR /$bootimages/pxe/. /data/boot-images/pxe
+cp -TR /$bootimages/iso/*.iso /data/boot-images/iso 
+cp -TR /$bootimages/pxe/. /data/boot-images/pxe
 cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
