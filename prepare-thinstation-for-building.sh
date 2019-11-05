@@ -8,8 +8,8 @@ bootimages=thinstation/build/boot-images
 keystore=ts/build/packages/ica/build/extra/opt/Citrix/ICAClient/keystore
 icaroot=ts/build/packages/ica/opt/Citrix/ICAClient
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
-cp -a /$prep/machine/. /$basepath/ts/build/machine/
-cp -a /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime
+cp -TR /$prep/machine/. /$basepath/ts/build/machine/
+cp -TR /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
 cat /$prep/conf/build.conf /data/url.conf /data/secret > /$basepath/ts/build/build.conf.example
