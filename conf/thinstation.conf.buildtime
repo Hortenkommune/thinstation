@@ -38,8 +38,8 @@ MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
 SET_RESOLUTION_MULTIMONITOR_AUTOSCALE='scale'
 SESSION_1_TYPE=icastore
-SESSION_1_ICASTORE_SERVER="storefront.horten.kommune.no"
-SESSION_1_ICASTORE_OPTIONS="--storegateway 'StoreFront' 'https://storefront.horten.kommune.no/citrix/storefrontintern/discovery'"
+SESSION_1_ICASTORE_SERVER="https://storefront.horten.kommune.no/citrix/storefrontintern/discovery"
+#SESSION_1_ICASTORE_OPTIONS="--storegateway 'StoreFront' 'https://storefront.horten.kommune.no/citrix/storefrontintern/discovery'"
 ICA_RECEIVER_RECONNECT_ON_LOGON=true
 ICA_RECEIVER_RECONNECT_ON_LAUNCH_OR_REFRESH=true
 ICA_RECEIVER_DISPLAY_DESKTOPS_IN_FULLSCREEN=true
