@@ -1,9 +1,6 @@
 #!/bin/bash
 basepath=thinstation
 prep=prepare
-cert=data/cert
-intcert=horten.pem
-cacert=digica.pem
 bootimages=thinstation/build/boot-images
 keystore=ts/build/packages/ica/build/extra/opt/Citrix/ICAClient/keystore
 icaroot=ts/build/packages/ica/opt/Citrix/ICAClient
@@ -22,7 +19,7 @@ tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cd /$basepath/
 ./setup-chroot -b -o --autodl
-
 cp -TR /$bootimages/iso/*.iso /data/boot-images/iso/
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe
 cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
+rm -rf /$prep
