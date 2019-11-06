@@ -18,6 +18,6 @@ tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules
-cp -TR /$bootimages/iso/*.iso /data/boot-images/iso/
+cp -TR /$bootimages/iso/thinstation.iso /data/boot-images/iso/thinstation.iso
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe
 cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
