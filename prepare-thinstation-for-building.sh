@@ -6,6 +6,8 @@ rm -rf /$prep
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/
 cp -TR /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime
+cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/
+cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
 cat /$prep/conf/build.conf /data/url.conf /data/secret > /$basepath/ts/build/build.conf.example
