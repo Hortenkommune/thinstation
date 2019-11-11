@@ -19,8 +19,6 @@ XFWM4_THEME=Default
 PANEL_PAGER=false
 PANEL_USER=false
 PANEL_REV_CLOCKSYSTRAY=true
-USE_XRANDR=true
-XRANDR_OPTIONS="dualscreen"
 ICONS_THEME="Adwaita"
 ICONS_CUT_SIZES="256x256 scalable"
 XTERM_CMD="xfce4-terminal"
@@ -42,6 +40,8 @@ MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
 SET_RESOLUTION_MULTIMONITOR_EXPAND='left'      
 SET_RESOLUTION_MULTIMONITOR_AUTOSCALE='scale'
+USE_XRANDR=true
+XRANDR_OPTIONS="dualscreen"
 SESSION_1_TYPE=icastore
 SESSION_1_ICASTORE_SERVER="https://storefront.horten.kommune.no/citrix/storefrontintern/discovery"
 ICA_RECEIVER_RECONNECT_ON_LOGON=true
