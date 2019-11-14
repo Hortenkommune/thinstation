@@ -2,6 +2,8 @@
 basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
+buildurl="head -n 2 /data/url.conf"
+buildtimeurl="tail -n 1 /data/url.conf"
 rm -rf /$prep
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/
@@ -10,7 +12,8 @@ cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/
 cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
-cat /$prep/conf/build.conf /data/url.conf /data/secret > /$basepath/ts/build/build.conf.example
+cat /$prep/conf/build.conf $buildurl /data/secret > /$basepath/ts/build/build.conf.example
+cat $buildtimeurl > /$basepath/ts/build/thinstation.conf.buildtime
 icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
 icafilename=${icabuildurl#*file://downloads/}
 ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
