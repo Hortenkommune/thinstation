@@ -33,7 +33,7 @@ NET_TIME_SERVER=0.pool.ntp.org
 TFTP_BLOCKSIZE=1024
 BIND_MOUNT0="storage:/mnt/storage"
 STORAGE_CONFIG1=/mnt/storage
-USB_STORAGE_SYNC=on
+USB_STORAGE_SYNC=off
 LOCALE=nb_NO
 MOUNT_0="LABEL=boot     /boot           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       0"
@@ -48,3 +48,4 @@ ICA_RECEIVER_CLEAR_CREDENTIALS_CHECK_INTERVAL=1
 ICA_RECEIVER_CLEAR_CREDENTIALS_WHEN_SESSION_LAUNCHED=true
 ICA_RECEIVER_FULLSCREEN_MODE=2
 ICA_RECEIVER_SHARED_USER_MODE=true
+X_DEVICE_OPTION1="DPMS on"
