@@ -17,7 +17,7 @@ echo param rootpasswd $paswd > /data/secret
 
 cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example 
 cat /data/url.conf | tail -n1 >> /$basepath/ts/build/thinstation.conf.buildtime
-cat /data/secret > /$basepath/ts/build/build.conf.example
+cat /data/secret | head -n1 >>> /$basepath/ts/build/build.conf.example
 
 icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
 icafilename=${icabuildurl#*file://downloads/}
