@@ -15,7 +15,8 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
 
-cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example && cat /data/url.conf | tail -n1 >> /$basepath/ts/build/thinstation.conf.buildtime
+cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example 
+cat /data/url.conf | tail -n1 >> /$basepath/ts/build/thinstation.conf.buildtime
 cat /$prep/conf/build.conf /data/secret > /$basepath/ts/build/build.conf.example
 
 icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
