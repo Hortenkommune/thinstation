@@ -25,6 +25,5 @@ if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
 fi
 cp -TR /$prep/conf/pxe/. /data/boot-images/pxe
-cp -TR /$bootimages/iso/thinstation.iso /data/boot-images/iso/thinstation.iso
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe
 cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
