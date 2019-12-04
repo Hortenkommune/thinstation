@@ -1,8 +1,4 @@
 #!/bin/bash
-echo "Positional Parameter:"
-echo '$0 = ' $0
-echo '$1 = ' $1
-
 basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
@@ -29,6 +25,5 @@ if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
 fi
 
-cp -TR /$prep/conf/network/. /data/boot-images/pxe \
-  && cp -TR /$bootimages/pxe/. /data/boot-images/pxe \
-  && cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
+cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux \
+  && cp -TR /$bootimages/iso/. /data/boot-images/iso
