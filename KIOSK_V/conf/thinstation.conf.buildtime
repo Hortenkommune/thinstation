@@ -38,4 +38,4 @@ MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
 USE_XRANDR=true
 SESSION_1_TYPE=CHROME
-SESSION_1_CHROME_OPTIONS=FULLSCREEN
+SESSION_1_CHROME_OPTIONS="--start-maximized"
