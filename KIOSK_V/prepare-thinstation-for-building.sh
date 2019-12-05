@@ -16,7 +16,7 @@ paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 echo param rootpasswd $paswd > /data/secret
 
 cat /data/secret | head -n1 >> /$basepath/ts/build/build.conf.example
-echo "SESSION_1_FIREFOX_HOMEPAGE=\"${1}\"" >> /$basepath/ts/build/$basepath.conf.buildtime
+echo "SESSION_1_CHROME_HOMEPAGE=\"${1}\"" >> /$basepath/ts/build/$basepath.conf.buildtime
 
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules
