@@ -10,7 +10,7 @@ git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-bra
 cp -TR /$prep/KIOSK_V/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime \
   && cp -TR /$prep/KIOSK_V/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
   && cp -TR /$prep/KIOSK_V/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
-  && cp -TR /$prep/KIOSK_V/conf/build.conf /$basepath/ts/build/build.conf.example
+  && cp -TR /$prep/KIOSK_V/conf/build.conf /$basepath/ts/build/build.conf.example \
   && cp -TR /data/hkcerts /$basepath/ts/build/packages/hkcerts
 
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
