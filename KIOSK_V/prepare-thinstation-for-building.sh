@@ -12,7 +12,7 @@ cp -TR /$prep/KIOSK_V/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepat
   && cp -TR /$prep/KIOSK_V/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
   && cp -TR /$prep/KIOSK_V/conf/build.conf /$basepath/ts/build/build.conf.example \
   && cp -TR /data/hkcerts /$basepath/ts/build/packages/hkcerts \
-  && mkdir /$basepath/ts/build/packages/firefox/lib/firefox/distribution/ \
+  && mkdir -p /$basepath/ts/build/packages/firefox/lib/firefox/distribution/ \
   && cp -TR /data/firefox-policies.json /$basepath/ts/build/packages/firefox/lib/firefox/distribution/policies.json
 
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
