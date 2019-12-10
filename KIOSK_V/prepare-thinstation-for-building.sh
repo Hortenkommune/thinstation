@@ -11,16 +11,16 @@ cp -TR /$prep/KIOSK_V/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepat
   && cp -TR /$prep/KIOSK_V/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
   && cp -TR /$prep/KIOSK_V/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
   && cp -TR /$prep/KIOSK_V/conf/build.conf /$basepath/ts/build/build.conf.example \
+  && cp -TR /$prep/KIOSK_V/packages/firefox/build/install /$basepath/ts/build/packages/firefox/build/install \
   && cp -TR /data/hkcerts /$basepath/ts/build/packages/hkcerts \
-  && mkdir -p /$basepath/ts/build/packages/firefox/lib/firefox/distribution/ \
-  && cp -TR /data/firefox-policies.json /$basepath/ts/build/packages/firefox/lib/firefox/distribution/policies.json
+  && cp -TR /data/firefox-policies.json /$basepath/ts/build/packages/firefox/policies.json
 
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 echo param rootpasswd $paswd > /data/secret
 
 cat /data/secret | head -n1 >> /$basepath/ts/build/build.conf.example
 echo "SESSION_1_FIREFOX_HOMEPAGE=\"${1}\"" >> /$basepath/ts/build/$basepath.conf.buildtime
-sed -i 's/param firefoxurl.*/param firefoxurl        https:\/\/download-installer.cdn.mozilla.net\/pub\/firefox\/releases\/71.0\/linux-x86_64\/nb-NO\/firefox-71.0.tar.bz2/g' thinstation/build/build.urls       
+sed -i 's/param firefoxurl.*/param firefoxurl        https:\/\/download.mozilla.org\/?product=firefox-latest&os=linux64&lang=nb-NO' thinstation/build/build.urls       
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules
 
