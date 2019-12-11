@@ -21,7 +21,7 @@ echo param rootpasswd $paswd > /data/secret
 cat /data/secret | head -n1 >> /$basepath/ts/build/build.conf.example
 echo "SESSION_1_FIREFOX_HOMEPAGE=\"${1}\"" >> /$basepath/ts/build/$basepath.conf.buildtime
 cat /data/wlan >> /$basepath/ts/build/$basepath.conf.buildtime
-sed -i 's/param firefoxurl.*/param firefoxurl        https:\/\/download.mozilla.org\/?product=firefox-latest\&os=linux64\&lang=nb-NO/g' thinstation/build/build.urls
+sed -i 's/param firefoxurl.*/param firefoxurl        https:\/\/download.mozilla.org\/?product=firefox-latest\&os=linux64\&lang=nb-NO/g' /thinstation/build/build.urls
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules
 
