@@ -1,4 +1,5 @@
-﻿gzname=`basename $1`
+﻿#!/bin/bash
+gzname=`basename $1`
 INSTALLDIR=./packages/firefox/lib
 
 tar -C wget_tmp -jxf wget_tmp/$gzname
