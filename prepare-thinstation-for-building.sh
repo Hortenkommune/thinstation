@@ -29,7 +29,7 @@ tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 
 cd /$basepath/
-./setup-chroot -b -o --autodl --allmodules
+./setup-chroot -b -o --autodl
 
 if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
