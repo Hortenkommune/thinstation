@@ -3,7 +3,7 @@ basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
 
-rm -rf /$prep
+#rm -rf /$prep
 
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 
