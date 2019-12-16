@@ -33,7 +33,7 @@ TFTP_BLOCKSIZE=1024
 #BIND_MOUNT0="BOOT:/boot"
 #STORAGE_CONFIG1=/mnt/storage
 LOCALE=nb_NO
-MOUNT_0="LABEL=boot     /mnt/usbdevice/mmcblk0p1/boot           auto    x-mount.mkdir,defaults  0       0"
+MOUNT_0="LABEL=BOOT     /mnt/usbdevice/mmcblk0p1/boot           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
 USE_XRANDR=true
