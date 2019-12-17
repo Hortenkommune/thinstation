@@ -30,7 +30,8 @@ NET_FILE_METHOD=wget
 TIME_ZONE=Europe/Oslo
 NET_TIME_SERVER=0.pool.ntp.org
 TFTP_BLOCKSIZE=1024
-#BIND_MOUNT0="BOOT:/boot"
+BIND_MOUNT0="BOOT:/boot"
+BIND_MOUNT1="BOOT:/mnt/usbdevice/mmcblk0p1"
 #STORAGE_CONFIG1=/mnt/storage
 LOCALE=nb_NO
 MOUNT_0="LABEL=boot     /boot           auto    x-mount.mkdir,defaults  0       0"
