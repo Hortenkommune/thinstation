@@ -35,7 +35,7 @@ LOCALE=nb_NO
 MOUNT_0="LABEL=BOOT     /boot           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
-MOUNT_3="LABEL=BOOT     /mnt/usbdevice/mmcblk0p1          auto    x-mount.mkdir,defaults  0       0"
+#MOUNT_3="LABEL=BOOT     /mnt/usbdevice/mmcblk0p1          auto    x-mount.mkdir,defaults  0       0"
 USE_XRANDR=true
 SESSION_1_TYPE=icastore
 SESSION_1_ICASTORE_SERVER="https://storefront.horten.kommune.no/citrix/storefrontintern/discovery"
