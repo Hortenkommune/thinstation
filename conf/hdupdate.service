@@ -1,6 +1,7 @@
 [Unit]
 Description=ThinStation hdupdate
-After=network.target
+After=network-files.service
+#Before=network-pre.target
 ConditionPathIsReadWrite=/etc
 
 [Service]
