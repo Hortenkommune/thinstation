@@ -1,0 +1,16 @@
+[Unit]
+Description=ThinStation hdupdate
+After=profile-setup.service
+Before=network-pre.target
+ConditionPathIsReadWrite=/etc
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/thinstation.env
+ExecStartPre=/bin/sleep 10
+ExecStart=/etc/init.d/hdupdate init
+SyslogIdentifier=thinstation
+
+[Install]
+WantedBy=multi-user.target
