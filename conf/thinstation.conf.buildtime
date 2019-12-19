@@ -55,4 +55,4 @@ HDUPDATE_WS_VERSION=2.1
 HDUPDATE_PATH=/boot
 HDUPDATE_SERVER_TYPE=wget
 HDUPDATE_TEMP=HD
-HDUPDATE_FILES="vmlinuz lib.squash initrd"
+HDUPDATE_FILES="vmlinuz initrd lib.squash"
