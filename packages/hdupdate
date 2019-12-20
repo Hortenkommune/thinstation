@@ -178,7 +178,6 @@ init)
 		WGET)
 		        TYPE_RETURN=0
 			( wget -O ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) &
-			sleep .2
 			while pidof wget > /dev/null; do
 				echo_log "." -n $debug
 				let progress=progress+1
@@ -186,7 +185,6 @@ init)
 				let progress=0
 				fi
 				splash_progress $progress
-				sleep 1
 #				fbtruetype "Updating Image, Do not turn off PC!!"
 			done
 			echo_log "." $debug
@@ -220,9 +218,7 @@ init)
         TEMPFILE="${TEMPPATH}/${CURFILE}"
         echo_log "Installing: ${TARGETFILE} from ${TEMPFILE}" $debug
         cp ${TEMPFILE} ${TARGETFILE}
-        sync
         rm ${TEMPFILE}
-        sync
       done
       echo_log "Files installed" $debug
 
