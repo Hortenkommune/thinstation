@@ -7,7 +7,7 @@
   DISK_LIST="/mnt/disc/sda /mnt/usbdevice/sda /mnt/usbdevice/mmcblk0p"
   PARTITION_LIST="1 2 3 4"
   let progress=0
-  let splash_total=20
+  let splash_total=40
 
   if [ -n "$DEBUG_NETWORK" ] ; then
           debug="-d"
@@ -177,7 +177,18 @@ init)
 		;;
 		WGET)
 		        TYPE_RETURN=0
-			( wget -O ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) &
+			( wget ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) &
+			sleep .2
+			while pidof wget > /dev/null; do
+				echo_log "." -n $debug
+				let progress=progress+1
+					if [ "$progress" -gt "$splash_total" ] ; then
+				let progress=0
+				fi
+				splash_progress $progress
+				sleep 1
+#				fbtruetype "Updating Image, Do not turn off PC!!"
+			done
 			echo_log "." $debug
 			sleep 1
 			if [ -e /tmp/return ] ; then
@@ -209,7 +220,9 @@ init)
         TEMPFILE="${TEMPPATH}/${CURFILE}"
         echo_log "Installing: ${TARGETFILE} from ${TEMPFILE}" $debug
         cp ${TEMPFILE} ${TARGETFILE}
+        sync
         rm ${TEMPFILE}
+        sync
       done
       echo_log "Files installed" $debug
 
