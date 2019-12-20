@@ -178,8 +178,6 @@ init)
 		WGET)
 		        TYPE_RETURN=0
 			( wget -O ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) &
-#				fbtruetype "Updating Image, Do not turn off PC!!"
-			done
 			echo_log "." $debug
 			sleep 1
 			if [ -e /tmp/return ] ; then
