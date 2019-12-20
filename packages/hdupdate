@@ -178,13 +178,6 @@ init)
 		WGET)
 		        TYPE_RETURN=0
 			( wget -O ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) &
-			while pidof wget > /dev/null; do
-				echo_log "." -n $debug
-				let progress=progress+1
-					if [ "$progress" -gt "$splash_total" ] ; then
-				let progress=0
-				fi
-				splash_progress $progress
 #				fbtruetype "Updating Image, Do not turn off PC!!"
 			done
 			echo_log "." $debug
