@@ -177,9 +177,7 @@ init)
 		;;
 		WGET)
 		        TYPE_RETURN=0
-			( wget ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) &
-			echo_log "." $debug
-			sleep 1
+			( wget -O ${TEMPFILE} ${HDUPDATE_SERVER}/${SOURCEFILE} ; echo $? > /tmp/return ) 
 			if [ -e /tmp/return ] ; then
 				TYPE_RETURN=`cat /tmp/return`
 				rm /tmp/return
