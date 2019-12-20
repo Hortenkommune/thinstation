@@ -9,10 +9,12 @@ git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-bra
 
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
    && cp -TR /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime \
-   && cp -TR /$prep/conf/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
+   && cp -TR /$prep/packages/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
+   && cp -TR /$prep/packages/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/init.d/hdupdate \
    && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
    && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
    && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
+
 
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
