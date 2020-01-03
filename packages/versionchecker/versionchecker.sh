@@ -22,7 +22,7 @@ else
         echo "Current server version is $requiredver, installed version is $currentver"
         echo "Update is needed, executing update crew..."
         echo "Checking if $servicename is still running"
-        do sleep 60
+        sleep 60
         while pgrep "$service" > /dev/null ; do sleep 10 ; echo "$servicename is still active." ; done
         echo "This system needs to reboot to update."
         /sbin/reboot
