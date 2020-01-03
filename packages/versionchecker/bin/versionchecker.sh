@@ -1,5 +1,6 @@
 #!/bin/bash
 PATH=/bin
+. $TS_GLOBAL
 set -e 
 set -o pipefail
 service="wfica"
