@@ -1,5 +1,5 @@
 #!/bin/bash
-filetocheck="/tmp/ica_receiver_clear_crentials_alive"
+filetocheck="/tmp/ica_receiver_clear_credentials_alive"
 serverip=$(export | grep SERVER_IP | cut -d '"' -f2)
 currentver="$(grep HDUPDATE_WS /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_VERSION=//')"
 requiredver="$(curl -s ${serverip}/thinstation.conf.network | grep HDUPDATE_SERVER | sed 's/^HDUPDATE_SERVER_VERSION=//')"
