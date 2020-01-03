@@ -1,4 +1,5 @@
 #!/bin/bash
+PATH=/bin
 set -e 
 set -o pipefail
 service="wfica"
