@@ -1,6 +1,4 @@
 #!/bin/bash
-PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/lib/udev:/lib/bin:/fastboot/bin
-. $TS_GLOBAL
 set -e 
 set -o pipefail
 service="wfica"
