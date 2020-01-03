@@ -6,10 +6,10 @@ currentver="$(grep HDUPDATE_WS /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_V
 requiredver="$(curl -s ${serverip}/thinstation.conf.network | grep HDUPDATE_SERVER | sed 's/^HDUPDATE_SERVER_VERSION=//')"
 if [ -z "$requiredver" ]
 then
-      echo "\$requiredver is empty, stopping..."
+      echo "Required version variable is empty, stopping..."
       exit
 else
-      echo "\$requiredver is NOT empty, continuing..."
+      echo "Required version variable is NOT empty, continuing..."
 fi
 
 if [ "$(printf '%s\n' "$requiredver" "$currentver" | sort -V | head -n1)" = "$requiredver" ]; then 
@@ -17,8 +17,8 @@ if [ "$(printf '%s\n' "$requiredver" "$currentver" | sort -V | head -n1)" = "$re
         echo "No updated needed, continuing..."
 else
         echo "Current server version is $requiredver, installed version is $currentver"
-        echo "Update is needed, executing update crew"
-        while [ -f /tmp/ica_receiver_clear_credentials_alive ] ; echo "Citrix Workspace is still active." ; do sleep 15; done
+        echo "Update is needed, executing update crew."
+        while [ -f /tmp/ica_receiver_clear_credentials_alive ] ; do sleep 10 ; echo "Citrix Workspace is still active." ; done
         echo "This system needs to reboot to update."
         #/sbin/reboot
 fi
