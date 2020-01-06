@@ -1,0 +1,9 @@
+[Unit]
+Description=versionchecker custom service
+
+[Service]
+Type=simple
+ExecStart=/bin/versionchecker.sh
+ExecReload=/usr/bin/versionchecker.sh
+[Install]
+WantedBy=multi-user.target
