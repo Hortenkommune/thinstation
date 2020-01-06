@@ -25,5 +25,5 @@ else
         echo "Checking if $servicename is still running"
         while pgrep "$service" > /dev/null ; do sleep 10 ; echo "$servicename is still active." ; done
         echo "$servicename is not active, system is rebooting to update."
-        #/sbin/reboot
+        /sbin/reboot
 fi
