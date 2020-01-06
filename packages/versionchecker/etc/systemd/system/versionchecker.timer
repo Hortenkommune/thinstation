@@ -1,9 +1,9 @@
 [Unit] 
-Description=Runs versionchecker.sh every 5 minuntes
+Description=Runs versionchecker.sh every 10 minuntes
 
 [Timer] 
-OnBootSec=5 m 
-OnCalendar=*:0/5
+OnBootSec=10 m 
+OnCalendar=*:0/10
 Unit=versionchecker.service 
 
 [Install] 
