@@ -3,9 +3,9 @@ set -e
 set -o pipefail
 service="wfica"
 servicename="Citrix Workspace"
-serverip=$(export | grep SERVER_IP | cut -d '"' -f2)
+serverip=$(export | grep SERVER_IP | cut -d '"' -f2) || /bin/true
 currentver="$(grep HDUPDATE_WS /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_VERSION=//')"
-requiredver="$(curl -s ${serverip}/thinstation.conf.network | grep HDUPDATE_SERVER | sed 's/^HDUPDATE_SERVER_VERSION=//')"
+requiredver="$(curl -s ${serverip}/thinstation.conf.network | grep HDUPDATE_SERVER | sed 's/^HDUPDATE_SERVER_VERSION=//')" || /bin/true
 
 if [ -z "$requiredver" ]
 then
