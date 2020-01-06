@@ -6,7 +6,7 @@ servicename="Citrix Workspace"
 serverip="$(grep "param bootserver" /etc/thinstation.defaults | sed 's/^param bootserver//')"
 currentver="$(grep HDUPDATE_WS /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_VERSION=//')"
 reqcurl="$(curl -s ${serverip}/thinstation.conf.network | head -n1)"
-requiredver="(echo $reqcurl | sed 's/^HDUPDATE_SERVER_VERSION=//')"
+requiredver="$(echo $reqcurl | sed 's/^HDUPDATE_SERVER_VERSION=//')"
 
 if [ -z "$requiredver" ]
 then
@@ -16,7 +16,7 @@ else
       echo "Required version variable is NOT empty, continuing..."
 fi
 
-if [ "$(printf '%s\n' "$requiredver" "$currentver" | sort -V | head -n1)" = "$requiredver" ]; then 
+if [ "$currentver" = "$requiredver" ]; then 
         echo "Current server version is $requiredver, installed version is $currentver"
         echo "No updated needed, continuing..."
 else
