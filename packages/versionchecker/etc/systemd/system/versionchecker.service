@@ -3,7 +3,10 @@ Description=versionchecker custom service
 
 [Service]
 Type=simple
+EnvironmentFile=/etc/thinstation.env
 ExecStart=/bin/versionchecker.sh
 ExecReload=/bin/versionchecker.sh
+SyslogIdentifier=thinstation
+
 [Install]
 WantedBy=multi-user.target
