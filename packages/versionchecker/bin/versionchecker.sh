@@ -3,9 +3,10 @@ set -e
 set -o pipefail
 service="wfica"
 servicename="Citrix Workspace"
-serverip=$(grep "param bootserver" /etc/thinstation.defaults | sed 's/^param bootserver//') || /bin/true
+serverip="$(grep "param bootserver" /etc/thinstation.defaults | sed 's/^param bootserver//')"
 currentver="$(grep HDUPDATE_WS /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_VERSION=//')"
-requiredver="$(curl -s ${serverip}/thinstation.conf.network | grep HDUPDATE_SERVER | sed 's/^HDUPDATE_SERVER_VERSION=//')" || /bin/true
+reqcurl="$(curl -s ${serverip}/thinstation.conf.network | head -n1)"
+requiredver="(echo $reqcurl | sed 's/^HDUPDATE_SERVER_VERSION=//')"
 
 if [ -z "$requiredver" ]
 then
@@ -24,5 +25,5 @@ else
         echo "Checking if $servicename is still running"
         while pgrep "$service" > /dev/null ; do sleep 10 ; echo "$servicename is still active." ; done
         echo "$servicename is not active, system is rebooting to update."
-        /sbin/reboot
+        #/sbin/reboot
 fi
