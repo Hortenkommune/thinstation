@@ -2,9 +2,9 @@
 Description=Runs versionchecker.sh every 10 minuntes
 
 [Timer] 
-OnBootSec=10 m 
+OnBootSec=10min 
 OnCalendar=*:0/10
 Unit=versionchecker.service 
 
 [Install] 
-WantedBy=timers.target
+WantedBy=multi-user.target
