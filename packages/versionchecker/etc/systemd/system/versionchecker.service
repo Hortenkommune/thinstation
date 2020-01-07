@@ -2,7 +2,7 @@
 Description=versionchecker custom service
 
 [Service]
-Type=simple
+Type=oneshot
 EnvironmentFile=/etc/thinstation.env
 ExecStart=/bin/versionchecker.sh
 ExecReload=/bin/versionchecker.sh
