@@ -7,6 +7,3 @@ EnvironmentFile=/etc/thinstation.env
 ExecStart=/bin/versionchecker.sh
 ExecReload=/bin/versionchecker.sh
 SyslogIdentifier=thinstation
-
-[Install]
-WantedBy=versionchecker.timer
