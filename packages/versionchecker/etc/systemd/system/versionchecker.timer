@@ -7,4 +7,4 @@ OnCalendar=*:0/10
 Unit=versionchecker.service 
 
 [Install] 
-WantedBy=multi-user.target
+WantedBy=timers.target
