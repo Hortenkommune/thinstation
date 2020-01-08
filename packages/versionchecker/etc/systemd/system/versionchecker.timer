@@ -1,5 +1,5 @@
 [Unit] 
-Description=Runs versionchecker.sh every 10 minuntes
+Description=Runs versionchecker.sh on boot after 10 minutes then every 30 minutes.
 
 [Timer] 
 OnBootSec=10min
