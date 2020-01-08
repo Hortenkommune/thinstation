@@ -1,9 +1,0 @@
-[Unit] 
-Description=Runs versionchecker.sh every 10 minuntes
-
-[Timer] 
-OnBootSec=10min 
-OnCalendar=*:0/10
-
-[Install] 
-WantedBy=timers.target
