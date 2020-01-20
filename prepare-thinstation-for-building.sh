@@ -34,6 +34,7 @@ tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 
 chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
+chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
 
 cd /$basepath/
 ./setup-chroot -b -o --autodl
