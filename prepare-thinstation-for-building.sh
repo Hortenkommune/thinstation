@@ -1,5 +1,5 @@
 #!/bin/bash
-BUILD_VERSION=2.3
+BUILD_VERSION=2.3.1
 basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
