@@ -1,4 +1,5 @@
 #!/bin/bash
+BUILD_VERSION=2.3
 basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
@@ -8,15 +9,15 @@ rm -rf /$prep
 git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
-   && cp -TR /$prep/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime \
-   && cp -TR /$prep/packages/hdupdate/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
-   && cp -TR /$prep/packages/hdupdate/hdupdate /$basepath/ts/build/packages/hdupdate/etc/init.d/hdupdate \
-   && cp -TR /$prep/packages/versionchecker/. /$basepath/ts/build/packages/versionchecker/ \
-   && cp -TR /$prep/packages/assetreporter/. /$basepath/ts/build/packages/assetreporter/ \
-   && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
-   && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
-   && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
+  && cp -TR /$prep/packages/hdupdate/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
+  && cp -TR /$prep/packages/hdupdate/hdupdate /$basepath/ts/build/packages/hdupdate/etc/init.d/hdupdate \
+  && cp -TR /$prep/packages/versionchecker/. /$basepath/ts/build/packages/versionchecker/ \
+  && cp -TR /$prep/packages/assetreporter/. /$basepath/ts/build/packages/assetreporter/ \
+  && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
+  && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
+  && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
 
+sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/$basepath.conf.buildtime > /$basepath/ts/build/$basepath.conf.buildtime
 
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo) 
 echo param rootpasswd $paswd > /data/secret
@@ -43,6 +44,7 @@ if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
 fi
 
-cp -TR /$prep/conf/network/. /data/boot-images/pxe \
-    && cp -TR /$bootimages/pxe/. /data/boot-images/pxe \
-    && cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
+sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/network/thinstation.conf.network > /data/boot-images/pxe/thinstation.conf.network
+
+cp -TR /$bootimages/pxe/. /data/boot-images/pxe \
+  && cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
