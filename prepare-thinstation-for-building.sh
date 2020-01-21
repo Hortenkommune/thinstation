@@ -44,7 +44,7 @@ if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
 fi
 
-sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/network/thinstation.conf.network > /data/boot-images/pxe/thinstation.conf.network
-
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe \
   && cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux
+
+sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/network/thinstation.conf.network > /data/boot-images/pxe/thinstation.conf.network
