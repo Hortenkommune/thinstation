@@ -3,6 +3,6 @@ Description=Runs assetreporter.sh on boot after 10 minutes then daily.
 
 [Timer] 
 OnBootSec=10min
-OnUnitActiveSec=daily
+OnUnitActiveSec=24h
 RandomizedDelaySec=60
  
