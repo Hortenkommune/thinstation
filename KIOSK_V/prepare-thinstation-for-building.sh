@@ -32,5 +32,4 @@ if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
 fi
 
-cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux \
-  && cp -TR /$bootimages/iso/. /data/boot-images/iso
+cp -TR /$bootimages/refind-iso/. /data/boot-images/refind-iso
