@@ -25,6 +25,12 @@ echo "SESSION_1_FIREFOX_HOMEPAGE=\"${1}\"" >> /$basepath/ts/build/$basepath.conf
 firefoxurl=$(curl "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=linux64&lang=nb-NO" -s -L -I -o /dev/null -w '%{url_effective}')
 sed -i "s@param firefoxurl.*@param firefoxurl        ${firefoxurl}@g" /thinstation/build/build.urls
 cat /data/wlan >> /$basepath/ts/build/$basepath.conf.buildtime
+asuser=$(head -1 /data/autoscrotter)
+assmb=$(tail -1 /data/autoscrotter)
+
+sed -i "s@USERSTRING@${asuser}@g" /thinstation/build/packages/autoscrotter/autoscrotter.sh
+sed -i "s@SMBSTRING@${assmb}@g" /thinstation/build/packages/autoscrotter/autoscrotter.sh
+
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules
 
