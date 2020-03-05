@@ -14,6 +14,7 @@ cp -TR /$prep/KIOSK_V/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepat
   && cp -TR /$prep/KIOSK_V/packages/firefox/build/install /$basepath/ts/build/packages/firefox/build/install \
   && cp -TR /data/iwlwifi /$basepath/ts/build/packages/iwlwifi \
   && cp -TR /data/hkcerts /$basepath/ts/build/packages/hkcerts \
+  && cp -TR /$prep/KIOSK_V/packages/autoscrotter/. /$basepath/ts/build/packages/autoscrotter/ \
   && cp -TR /data/firefox-policies.json /$basepath/ts/build/packages/firefox/policies.json
 
 paswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
@@ -22,7 +23,7 @@ echo param rootpasswd $paswd > /data/secret
 cat /data/secret | head -n1 >> /$basepath/ts/build/build.conf.example
 echo "SESSION_1_FIREFOX_HOMEPAGE=\"${1}\"" >> /$basepath/ts/build/$basepath.conf.buildtime
 firefoxurl=$(curl "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=linux64&lang=nb-NO" -s -L -I -o /dev/null -w '%{url_effective}')
-sed -i "s/param firefoxurl.*/param firefoxurl        ${firefoxurl}/g" /thinstation/build/build.urls
+sed -i "s@param firefoxurl.*@param firefoxurl        ${firefoxurl}@g" /thinstation/build/build.urls
 cat /data/wlan >> /$basepath/ts/build/$basepath.conf.buildtime
 cd /$basepath/
 ./setup-chroot -b -o --autodl --allmodules

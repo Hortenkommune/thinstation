@@ -1,0 +1,7 @@
+[Unit]
+Description=autoscrotter custom service
+
+[Service]
+Type=idle
+ExecStart=/bin/autoscrotter.sh
+SyslogIdentifier=thinstation
