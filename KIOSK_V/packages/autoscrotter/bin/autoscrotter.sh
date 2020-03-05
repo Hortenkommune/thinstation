@@ -1,4 +1,3 @@
 #!/bin/bash
-rm -f ~/shot.png
-scrot -u ~/shot.png
-curl --upload-file ~/shot.png -u USERSTRING SMBSTRING
+DISPLAY=:0 scrot -o -u /root/shot.png
+curl --upload-file /root/shot.png -u USERSTRING SMBSTRING
