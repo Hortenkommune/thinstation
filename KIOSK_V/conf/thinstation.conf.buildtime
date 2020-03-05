@@ -33,5 +33,9 @@ LOCALE=nb_NO
 MOUNT_0="LABEL=boot     /boot           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_1="LABEL=home     /root           auto    x-mount.mkdir,defaults  0       0"
 MOUNT_2="LABEL=swap     swap            swap    defaults        0       0"
+SCREEN_BLANK_TIME=0
+SCREEN_STANDBY_TIME=0
+SCREEN_SUSPEND_TIME=0
+SCREEN_OFF_TIME=0
 USE_XRANDR=true
 SESSION_1_TYPE=FIREFOX
