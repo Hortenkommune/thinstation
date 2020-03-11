@@ -3,4 +3,4 @@ Description=Runs autoscrotter.sh on boot after 5 minutes then daily.
 
 [Timer] 
 OnBootSec=5min
-OnUnitActiveSec=5min
+OnUnitActiveSec=15sec
