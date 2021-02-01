@@ -38,7 +38,7 @@ chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
 
 cd /$basepath/
-./setup-chroot -b -o --autodl
+./setup-chroot -b -o --autodl --allmodules
 
 if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
