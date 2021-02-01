@@ -56,4 +56,4 @@ HDUPDATE_WS_VERSION=${BUILD_VERSION}
 HDUPDATE_PATH=/boot
 HDUPDATE_SERVER_TYPE=wget
 HDUPDATE_TEMP=HD
-HDUPDATE_FILES="vmlinuz initrd lib.squash refind-iso systemd-boot-iso"
+HDUPDATE_FILES="vmlinuz initrd lib.squash"
