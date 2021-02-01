@@ -39,6 +39,7 @@ MOUNT_3="LABEL=BOOT     /mnt/usbdevice/mmcblk0p1          auto    x-mount.mkdir,
 USE_XRANDR=true
 SESSION_1_TYPE=icastore
 SESSION_1_ICASTORE_SERVER="https://storefront.horten.kommune.no/citrix/storefrontintern/discovery"
+ICA_WFCLIENT_AllowAudioInput=True
 ICA_RECEIVER_RECONNECT_ON_LOGON=true
 ICA_RECEIVER_RECONNECT_ON_LAUNCH_OR_REFRESH=true
 ICA_RECEIVER_DISPLAY_DESKTOPS_IN_FULLSCREEN=true
