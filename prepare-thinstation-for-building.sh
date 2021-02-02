@@ -26,13 +26,13 @@ cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example
 cat /data/url.conf | tail -n2 >> /$basepath/ts/build/thinstation.conf.buildtime
 cat /data/secret >> /$basepath/ts/build/build.conf.example
 
-icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
-icafilename=${icabuildurl#*file://downloads/}
-ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
-IFS=' '
-read -ra ADDR <<< "$ahref"
-tarbLink="${ADDR/"//"/"https://"}"
-wget ${tarbLink} -O /$basepath/downloads/$icafilename
+#icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
+#icafilename=${icabuildurl#*file://downloads/}
+#ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
+#IFS=' '
+#read -ra ADDR <<< "$ahref"
+#tarbLink="${ADDR/"//"/"https://"}"
+#wget ${tarbLink} -O /$basepath/downloads/$icafilename
 
 chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
