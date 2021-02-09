@@ -7,4 +7,4 @@ wsver="$(grep "HDUPDATE_WS" /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_VERS
 jsondata='{"lastseen": "%s","lastknownip":"%s","wsversion": "%s"}\n'
 body="$(printf "$jsondata" "$now" "$ip" "$wsver")"
 
-curl -X PUT -H "Content-Type: application/json" -d "${body}" "http://${host}/thinclient/$(hostname)"
+curl -X PUT -H "Content-Type: application/json" -d "${body}" "${host}/thinclient/$(hostname)"

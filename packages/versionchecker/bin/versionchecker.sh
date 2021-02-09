@@ -5,8 +5,7 @@ service="wfica"
 servicename="Citrix Workspace"
 serverip="$(grep "HDUPDATE_SERVER=" /etc/thinstation.defaults | sed 's/^HDUPDATE_SERVER=//')"
 currentver="$(grep HDUPDATE_WS /etc/thinstation.defaults | sed 's/^HDUPDATE_WS_VERSION=//')"
-reqcurl="$(curl -s ${serverip}/thinstation.conf.network | head -n1)"
-requiredver="$(echo $reqcurl | sed 's/^HDUPDATE_SERVER_VERSION=//')"
+requiredver="$(curl -s ${serverip}/thinstation.conf.network | grep HDUPDATE_SERVER_VERSION | sed 's/^HDUPDATE_SERVER_VERSION=//')"
 
 if [ -z "$requiredver" ]
 then
