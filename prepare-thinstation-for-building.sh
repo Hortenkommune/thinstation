@@ -6,7 +6,7 @@ bootimages=thinstation/build/boot-images
 
 rm -rf /$prep
 
-git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
+git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch beta
 
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/hdupdate/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
