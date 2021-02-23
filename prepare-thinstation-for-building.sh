@@ -20,11 +20,12 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
 
 sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/$basepath.conf.buildtime > /$basepath/ts/build/$basepath.conf.buildtime
 
+rm /data/secret -f
 rootpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 sleep 1
 tsuserpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
-echo param rootpasswd $rootpasswd > /data/secret
-echo param tsuserpasswd $tsuserpasswd > /data/secret
+echo param rootpasswd $rootpasswd >> /data/secret
+echo param tsuserpasswd $tsuserpasswd >> /data/secret
 
 cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example 
 cat /data/url.conf | tail -n3 >> /$basepath/ts/build/thinstation.conf.buildtime
