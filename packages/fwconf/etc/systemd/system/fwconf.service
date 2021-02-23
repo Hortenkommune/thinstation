@@ -1,0 +1,9 @@
+[Unit]
+Description=fwconf custom service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/iptables-restore -c < /etc/iptables.rules
+ExecStart=/sbin/ip6tables-restore -c < /etc/ip6tables.rules
+SyslogIdentifier=thinstation
