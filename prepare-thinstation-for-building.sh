@@ -13,6 +13,7 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/hdupdate/hdupdate /$basepath/ts/build/packages/hdupdate/etc/init.d/hdupdate \
   && cp -TR /$prep/packages/versionchecker/. /$basepath/ts/build/packages/versionchecker/ \
   && cp -TR /$prep/packages/assetreporter/. /$basepath/ts/build/packages/assetreporter/ \
+  && cp -TR /$prep/packages/fwconf/. /$basepath/ts/build/packages/fwconf/ \
   && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
   && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
   && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
@@ -24,6 +25,8 @@ echo param rootpasswd $paswd > /data/secret
 
 cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example 
 cat /data/url.conf | tail -n3 >> /$basepath/ts/build/thinstation.conf.buildtime
+cat /data/iptables.rules >> /$basepath/ts/build/packages/fwconf/etc/iptables.rules
+cat /data/ip6tables.rules >> /$basepath/ts/build/packages/fwconf/etc/ip6tables.rules
 cat /data/secret >> /$basepath/ts/build/build.conf.example
 
 icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
