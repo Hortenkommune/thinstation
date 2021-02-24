@@ -1,9 +1,18 @@
 [Unit]
-Description=fwconf custom service
+Description=enable iptables rules
+DefaultDependencies=no
+After=systemd-sysctl.service
+Before=sysinit.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/sbin/iptables-restore -c < /etc/iptables.rules
-ExecStart=/sbin/ip6tables-restore -c < /etc/ip6tables.rules
+ExecStart=/sbin/iptables-restore /etc/iptables.rules
+ExecStart=/sbin/ip6tables-restore /etc/ip6tables.rules
+ExecReload=/sbin/iptables-restore /etc/iptables.rules
+ExecReload=/sbin/ip6tables-restore /etc/ip6tables.rules
+RemainAfterExit=yes
 SyslogIdentifier=thinstation
+
+[Install]
+WantedBy=multi-user.target

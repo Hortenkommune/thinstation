@@ -2,4 +2,9 @@
 :INPUT DROP [0:0]
 :FORWARD DROP [0:0]
 :OUTPUT DROP [0:0]
+
+# ICMP
+-A INPUT -p ipv6-icmp -j ACCEPT
+-A OUTPUT -p ipv6-icmp -j ACCEPT
+
 COMMIT
