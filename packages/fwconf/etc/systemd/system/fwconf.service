@@ -1,8 +1,6 @@
 [Unit]
 Description=enable iptables rules
-DefaultDependencies=no
-After=systemd-sysctl.service
-Before=sysinit.target
+After=network-files.service
 
 [Service]
 Type=oneshot
@@ -11,7 +9,6 @@ ExecStart=/sbin/iptables-restore /etc/iptables.rules
 ExecStart=/sbin/ip6tables-restore /etc/ip6tables.rules
 ExecReload=/sbin/iptables-restore /etc/iptables.rules
 ExecReload=/sbin/ip6tables-restore /etc/ip6tables.rules
-RemainAfterExit=yes
 SyslogIdentifier=thinstation
 
 [Install]
