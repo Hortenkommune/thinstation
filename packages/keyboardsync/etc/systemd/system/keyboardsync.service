@@ -1,5 +1,6 @@
 [Unit]
 Description=ThinStation keyboard synch
+After=polkit.service
 StartLimitIntervalSec=0
 
 [Service]
