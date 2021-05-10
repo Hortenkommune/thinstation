@@ -1,13 +1,14 @@
 [Unit]
 Description=ThinStation keyboard synch
 StartLimitIntervalSec=0
+After=polkit.service
 
 [Service]
 Environment=DISPLAY=:0
 User=tsuser
 Restart=on-failure
-RestartSec=10
+RestartSec=1
 ExecStart=/bin/keyboardsync.sh
 
 [Install]
-WantedBy=graphical.target
+WantedBy=multi-user.target
