@@ -1,0 +1,12 @@
+[Unit]
+Description=ThinStation keyboard synch
+After=network-files.service
+ConditionPathIsReadWrite=/etc
+
+[Service]
+Type=oneshot
+ExecStart=/bin/setxkbmap -synch
+SyslogIdentifier=thinstation
+
+[Install]
+WantedBy=multi-user.target
