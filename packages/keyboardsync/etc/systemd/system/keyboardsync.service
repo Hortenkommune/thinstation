@@ -1,6 +1,6 @@
 [Unit]
 Description=ThinStation keyboard synch
-After=session-setup.service
+After=profile-setup.service
 StartLimitIntervalSec=600
 StartLimitBurst=30
 
