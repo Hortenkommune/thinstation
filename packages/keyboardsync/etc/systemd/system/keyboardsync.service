@@ -1,14 +1,14 @@
 [Unit]
 Description=ThinStation keyboard synch
 After=session-setup.service
-StartLimitIntervalSec=300
-StartLimitBurst=10
+StartLimitIntervalSec=600
+StartLimitBurst=30
 
 [Service]
 ExecStart=/bin/setxkbmap -synch -display :0
 SyslogIdentifier=thinstation
 Restart=on-failure
-RestartSec=10
+RestartSec=4
 
 [Install]
 WantedBy=multi-user.target
