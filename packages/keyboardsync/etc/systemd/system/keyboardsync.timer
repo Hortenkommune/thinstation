@@ -1,5 +1,0 @@
-[Unit] 
-Description=Runs keyboardsync on boot
-
-[Timer] 
-OnBootSec=180
