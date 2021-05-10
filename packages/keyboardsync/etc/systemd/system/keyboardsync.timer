@@ -2,4 +2,4 @@
 Description=Runs keyboardsync on boot
 
 [Timer] 
-OnBootSec=40
+OnBootSec=180
