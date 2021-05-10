@@ -14,6 +14,8 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/versionchecker/. /$basepath/ts/build/packages/versionchecker/ \
   && cp -TR /$prep/packages/assetreporter/. /$basepath/ts/build/packages/assetreporter/ \
   && cp -TR /$prep/packages/fwconf/. /$basepath/ts/build/packages/fwconf/ \
+  && cp -TR /$prep/packages/keyboardsync/. /$basepath/ts/build/packages/keyboardsync/ \
+  && cp -TR /$prep/packages/ntpsync/. /$basepath/ts/build/packages/ntpsync/ \
   && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
   && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
   && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
