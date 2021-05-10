@@ -3,10 +3,10 @@ Description=ThinStation keyboard synch
 StartLimitIntervalSec=0
 
 [Service]
-Type=simple
+Type=idle
 Restart=on-failure
 RestartSec=10
-ExecStart=/bin/setxkbmap -synch -display :0
+ExecStart=/bin/keyboardsync.sh
 
 [Install]
 WantedBy=multi-user.target

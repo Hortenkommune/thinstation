@@ -42,6 +42,7 @@ read -ra ADDR <<< "$ahref"
 tarbLink="${ADDR/"//"/"https://"}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 
+chmod +x /$basepath/ts/build/packages/keyboardsync/bin/keyboardsync.sh
 chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
 
