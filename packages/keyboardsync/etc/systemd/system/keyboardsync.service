@@ -4,6 +4,7 @@ StartLimitIntervalSec=0
 After=polkit.service
 
 [Service]
+Type=simple
 Environment=DISPLAY=:0
 User=tsuser
 Restart=on-failure
@@ -11,4 +12,4 @@ RestartSec=1
 ExecStart=/bin/keyboardsync.sh
 
 [Install]
-WantedBy=multi-user.target
+#WantedBy=multi-user.target
