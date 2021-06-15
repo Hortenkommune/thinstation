@@ -1,0 +1,15 @@
+[Unit]
+Description=enable iptables rules
+After=network-files.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/iptables-restore /etc/iptables.rules
+ExecStart=/sbin/ip6tables-restore /etc/ip6tables.rules
+ExecReload=/sbin/iptables-restore /etc/iptables.rules
+ExecReload=/sbin/ip6tables-restore /etc/ip6tables.rules
+SyslogIdentifier=thinstation
+
+[Install]
+WantedBy=multi-user.target

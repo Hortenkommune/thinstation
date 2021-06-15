@@ -1,0 +1,14 @@
+firmware bxt_dmc_ver1_07.bin
+firmware ibt-hw-37.8.10-fw-22.50.19.14.f.bseq
+firmware ibt-hw-37.8.bseq
+firmware 06-2a-07
+firmware iwlwifi-3168-22.ucode
+firmware iwlwifi-3168-27.ucode
+firmware iwlwifi-3168-29.ucode
+firmware regulatory.db
+firmware rtl8168g-2.fw
+firmware rtl8168h-2.fw
+firmware regulatory.db.p7s
+firmware iwlwifi-7260-17.ucode
+firmware ibt-hw-37.7.10-fw-1.80.2.3.d.bseq
+firmware ibt-hw-37.7.bseq

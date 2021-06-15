@@ -1,0 +1,16 @@
+#!/bin/bash
+gzname=`basename $1`
+INSTALLDIR=./packages/firefox/lib
+
+tar -C wget_tmp -jxf wget_tmp/$gzname
+mv wget_tmp/firefox $INSTALLDIR
+
+mkdir -p "${INSTALLDIR}/firefox/distribution"
+cp -TR ./packages/firefox/policies.json "${INSTALLDIR}/firefox/distribution/policies.json"
+
+returnval=$?
+
+patchelf --set-rpath /lib/firefox $INSTALLDIR/firefox/libnss3.so
+let returnval=returnval+$?
+
+exit $returnval

@@ -1,0 +1,7 @@
+[Unit]
+Description=assetreporter custom service
+
+[Service]
+Type=idle
+ExecStart=/bin/assetreporter.sh
+SyslogIdentifier=thinstation

@@ -1,0 +1,13 @@
+[Unit]
+Description=ThinStation ntpd sync
+After=network-files.service
+ConditionPathIsReadWrite=/etc
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/ntpd restart
+ExecStart=/sbin/hwclock -w
+SyslogIdentifier=thinstation
+
+[Install]
+WantedBy=multi-user.target

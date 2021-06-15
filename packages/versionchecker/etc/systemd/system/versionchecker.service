@@ -1,0 +1,8 @@
+[Unit]
+Description=versionchecker custom service
+
+[Service]
+Type=idle
+EnvironmentFile=/etc/thinstation.env
+ExecStart=/bin/versionchecker.sh
+SyslogIdentifier=thinstation
