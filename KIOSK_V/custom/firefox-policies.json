@@ -1,0 +1,10 @@
+{
+    "policies": {
+      "Certificates": {
+        "Install": [
+          "/hkcerts/*.pem",
+          "/hkcerts/*.pem"
+        ]
+      }
+    }
+  }
