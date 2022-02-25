@@ -12,6 +12,7 @@ cp -TR /$prep/KIOSK_V/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepat
   && cp -TR /$prep/KIOSK_V/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
   && cp -TR /$prep/KIOSK_V/conf/build.conf /$basepath/ts/build/build.conf.example \
   && cp -TR /$prep/KIOSK_V/packages/firefox/build/install /$basepath/ts/build/packages/firefox/build/install \
+  && cp -TR /data/iwlwifi /$basepath/ts/build/packages/iwlwifi \
   && cp -TR /data/hkcerts /$basepath/ts/build/packages/hkcerts \
   && cp -TR /$prep/KIOSK_V/packages/autoscrotter/. /$basepath/ts/build/packages/autoscrotter/ \
   && cp -TR /data/firefox-policies.json /$basepath/ts/build/packages/firefox/policies.json

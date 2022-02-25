@@ -1,3 +1,5 @@
 *.pem
 wlan
 secret
+boot-images
+*.ucode
