@@ -2,8 +2,8 @@
     "policies": {
       "Certificates": {
         "Install": [
-          "/hkcerts/*.pem",
-          "/hkcerts/*.pem"
+          "/hkcerts/ISSUING.pem",
+          "/hkcerts/ROOT.pem"
         ]
       }
     }
