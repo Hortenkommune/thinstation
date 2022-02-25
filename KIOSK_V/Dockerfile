@@ -1,4 +1,4 @@
-FROM docker.io/library/centos:latest
+FROM docker.io/library/centos:7
 
 ENV STARTPAGE=https://horten.kommune.no
 ENV SMBUSER=USERNAME
