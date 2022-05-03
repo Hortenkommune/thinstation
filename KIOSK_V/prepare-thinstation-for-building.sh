@@ -5,7 +5,7 @@ bootimages=thinstation/build/boot-images
 
 rm -rf /$prep
 
-git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
+git clone --depth 1 https://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 
 cp -TR /$prep/KIOSK_V/conf/$basepath.conf.buildtime /$basepath/ts/build/$basepath.conf.buildtime \
   && cp -TR /$prep/KIOSK_V/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
