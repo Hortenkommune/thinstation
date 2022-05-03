@@ -36,4 +36,4 @@ if [ ! -d "/data/boot-images" ]; then
   mkdir /data/boot-images
 fi
 
-cp -TR /$bootimages/refind-iso/. /data/boot-images/refind-iso
+cp -TR /$bootimages/. /data/boot-images
