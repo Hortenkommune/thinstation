@@ -29,7 +29,10 @@ sleep 1
 tsuserpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 echo param rootpasswd $rootpasswd >> /data/secret
 echo param tsuserpasswd $tsuserpasswd >> /data/secret
-
+# Kernelstuff
+echo 5.15.40 >> /$basepath/ts/ports/kernel-modules/VERSION
+rebuild-kernels -a
+#####
 cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example 
 cat /data/url.conf | tail -n3 >> /$basepath/ts/build/thinstation.conf.buildtime
 cat /data/iptables.rules >> /$basepath/ts/build/packages/fwconf/etc/iptables.rules
