@@ -2,6 +2,7 @@
 BUILD_VERSION=2.4.0
 basepath=thinstation
 prep=prepare
+kernelversion=5.15.40
 bootimages=thinstation/build/boot-images
 
 rm -rf /$prep
@@ -23,6 +24,8 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
 
 sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/$basepath.conf.buildtime > /$basepath/ts/build/$basepath.conf.buildtime
 
+echo $kernelversion > /$basepath/ts/ports/kernel-modules/VERSION
+
 rm /data/secret -f
 rootpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 sleep 1
@@ -37,7 +40,7 @@ cat /data/secret >> /$basepath/ts/build/build.conf.example
 
 icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
 icafilename=${icabuildurl#*file://downloads/}
-ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/legacy-workspace-app-for-linux/workspace-app-for-linux-2012.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
+ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/legacy-workspace-app-for-linux/workspace-app-for-linux-2112.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
 IFS=' '
 read -ra ADDR <<< "$ahref"
 tarbLink="${ADDR/"//"/"https://"}"
@@ -48,6 +51,7 @@ chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
 
 cd /$basepath/
+./setup-chroot -e "rebuild-kernels -a"
 ./setup-chroot -b -o --autodl
 
 if [ ! -d "/data/boot-images" ]; then
