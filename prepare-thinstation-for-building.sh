@@ -29,9 +29,7 @@ sleep 1
 tsuserpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 echo param rootpasswd $rootpasswd >> /data/secret
 echo param tsuserpasswd $tsuserpasswd >> /data/secret
-# Kernelstuff
-echo 5.15.40 > /$basepath/ts/ports/kernel-modules/VERSION
-#####
+
 cat /data/url.conf | head -n2 >> /$basepath/ts/build/build.conf.example 
 cat /data/url.conf | tail -n3 >> /$basepath/ts/build/thinstation.conf.buildtime
 cat /data/iptables.rules >> /$basepath/ts/build/packages/fwconf/etc/iptables.rules
@@ -50,7 +48,6 @@ chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
 
 cd /$basepath/
-./setup-chroot -e "rebuild-kernels -a"
 ./setup-chroot -b -o --autodl
 
 if [ ! -d "/data/boot-images" ]; then
