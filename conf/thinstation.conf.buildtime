@@ -1,5 +1,5 @@
 AUDIO_LEVEL=90
-MIC_LEVEL=70
+MIC_LEVEL=90
 SESSION_0_TYPE=xfwm4
 SESSION_0_AUTOSTART=on
 XFWM4_COMPOSITING=true
@@ -40,6 +40,7 @@ MOUNT_3="LABEL=BOOT     /mnt/usbdevice/mmcblk0p1          auto    x-mount.mkdir,
 USE_XRANDR=true
 SESSION_1_TYPE=icastore
 SESSION_1_ICASTORE_SERVER="https://storefront.horten.kommune.no/citrix/storefrontintern/discovery"
+ICA_AUDIO_QUALITY=High
 ICA_WFCLIENT_AllowAudioInput=True
 ICA_RECEIVER_RECONNECT_ON_LOGON=true
 ICA_RECEIVER_RECONNECT_ON_LAUNCH_OR_REFRESH=true
