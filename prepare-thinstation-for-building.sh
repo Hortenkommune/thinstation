@@ -30,6 +30,7 @@ rm /data/secret -f
 rootpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 sleep 1
 tsuserpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
+cp /data/secret /data/secret.old
 echo param rootpasswd $rootpasswd >> /data/secret
 echo param tsuserpasswd $tsuserpasswd >> /data/secret
 
