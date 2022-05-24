@@ -26,11 +26,11 @@ sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/$basepath.conf.buildt
 
 echo $kernelversion > /$basepath/ts/ports/kernel-modules/VERSION
 
+cp /data/secret /data/secret.old
 rm /data/secret -f
 rootpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 sleep 1
 tsuserpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
-cp /data/secret /data/secret.old
 echo param rootpasswd $rootpasswd >> /data/secret
 echo param tsuserpasswd $tsuserpasswd >> /data/secret
 
