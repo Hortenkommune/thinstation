@@ -2,7 +2,7 @@
 BUILD_VERSION=2.4.2
 basepath=thinstation
 prep=prepare
-kernelversion=5.15.40
+kernelversion=5.10.117
 bootimages=thinstation/build/boot-images
 
 rm -rf /$prep
