@@ -60,5 +60,6 @@ fi
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe \
   && cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux \
   && cp -TR /$bootimages/refind-iso/. /data/boot-images/refind-iso
+  && cp -TR /$prep/conf/default /data/boot-images/pxe/boot/pxelinux/pxelinux.cfg/default \
 
 sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/network/thinstation.conf.network > /data/boot-images/pxe/thinstation.conf.network
