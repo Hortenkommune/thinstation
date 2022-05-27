@@ -3,6 +3,7 @@ BUILD_VERSION=2.4.2
 basepath=thinstation
 prep=prepare
 bootimages=thinstation/build/boot-images
+kernelversion=5.15.41
 
 rm -rf /$prep
 
@@ -21,6 +22,8 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
 
 sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/$basepath.conf.buildtime > /$basepath/ts/build/$basepath.conf.buildtime
+
+echo $kernelversion > /$basepath/ts/ports/kernel-modules/VERSION
 
 rm /data/secret -f
 rootpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
@@ -47,6 +50,7 @@ chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
 
 cd /$basepath/
+./setup-chroot -e "rebuild-kernels -a"
 ./setup-chroot -b -o --autodl
 
 if [ ! -d "/data/boot-images" ]; then
