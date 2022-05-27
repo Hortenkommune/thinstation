@@ -1,4 +1,0 @@
-#!/bin/sh
-mv /opt/Citrix/ICAClient/selfservice /opt/Citrix/ICAClient/selfservice2
-cp /opt/Citrix/ICAClient/selfservice.sh /opt/Citrix/ICAClient/selfservice
-chmod +x /opt/Citrix/ICAClient/selfservice

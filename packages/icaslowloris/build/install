@@ -1,9 +1,9 @@
 #!/bin/sh
-export PACKAGE=icaslowloris
-repackage -e
+#export PACKAGE=icaslowloris
+#repackage -e
+PACKAGEDIR=./packages/icaslowloris
+INSTALLDIR=./packages/ica
 
-mv /opt/Citrix/ICAClient/selfservice /opt/Citrix/ICAClient/selfservice2
-cp /opt/Citrix/ICAClient/selfservice.sh /opt/Citrix/ICAClient/selfservice
-chmod +x /opt/Citrix/ICAClient/selfservice
-
-touch ./testbuildslow
+mv $INSTALLDIR/opt/Citrix/ICAClient/selfservice $INSTALLDIR/opt/Citrix/ICAClient/selfservice2
+cp $PACKAGEDIR/opt/Citrix/ICAClient/selfservice.sh $INSTALLDIR/opt/Citrix/ICAClient/selfservice
+chmod +x $INSTALLDIR/opt/Citrix/ICAClient/selfservice
