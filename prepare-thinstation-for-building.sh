@@ -17,6 +17,7 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/fwconf/. /$basepath/ts/build/packages/fwconf/ \
   && cp -TR /$prep/packages/keyboardsync/. /$basepath/ts/build/packages/keyboardsync/ \
   && cp -TR /$prep/packages/ntpsync/. /$basepath/ts/build/packages/ntpsync/ \
+  && cp -TR /$prep/packages/icaslowloris/. /$basepath/ts/build/packages/icaslowloris/ \
   && cp -TR /$prep/packages/icausb/. /$basepath/ts/build/packages/icausb/ \
   && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
   && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
@@ -26,7 +27,7 @@ sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/$basepath.conf.buildt
 
 echo $kernelversion > /$basepath/ts/ports/kernel-modules/VERSION
 
-cp /data/secret /data/secret.old
+mv -f /data/secret /data/secret.old 
 rm /data/secret -f
 rootpasswd=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 sleep 1
@@ -50,6 +51,7 @@ wget ${tarbLink} -O /$basepath/downloads/$icafilename
 chmod +x /$basepath/ts/build/packages/keyboardsync/bin/keyboardsync.sh
 chmod +x /$basepath/ts/build/packages/versionchecker/bin/versionchecker.sh
 chmod +x /$basepath/ts/build/packages/assetreporter/bin/assetreporter.sh
+chmod +x /$basepath/ts/build/packages/icaslowloris/opt/Citrix/ICAClient/selfservice.sh
 
 cd /$basepath/
 ./setup-chroot -e "rebuild-kernels -a"
