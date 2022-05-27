@@ -7,7 +7,7 @@ kernelversion=5.15.41
 
 rm -rf /$prep
 
-git clone --depth 1 git://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
+git clone --depth 1 https://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
 
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/hdupdate/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
