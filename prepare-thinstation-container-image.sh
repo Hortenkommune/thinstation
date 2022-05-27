@@ -8,5 +8,5 @@ touch /$basepath/ts/etc/support.love
 echo $kernelversion > /$basepath/ts/ports/kernel-modules/VERSION
 
 cd /$basepath
-./setup-chroot -i
+#./setup-chroot -i
 ./setup-chroot -e "rebuild-kernels -a"
