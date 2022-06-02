@@ -1,5 +1,5 @@
 #!/bin/bash
-wget -o https://github.com/Thinstation/thinstation/archive/refs/tags/6.2.13.zip
+wget https://github.com/Thinstation/thinstation/archive/refs/tags/6.2.13.zip
 unzip -q 6.2.13.zip
 #git clone --depth 1 https://github.com/Thinstation/thinstation.git /thinstation --single-branch --branch 6.2-Stable
 touch /thinstation/ts/etc/READ
