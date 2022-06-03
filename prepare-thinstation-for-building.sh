@@ -41,7 +41,7 @@ icafilename=${icabuildurl#*file://downloads/}
 ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/legacy-workspace-app-for-linux/workspace-app-for-linux-2112.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
 IFS=' '
 read -ra ADDR <<< "$ahref"
-tarbLink="${ADDR/"//"/"https://"}"
+tarbLink="${ADDR/"//"/https://}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 
 chmod +x /$basepath/ts/build/packages/keyboardsync/bin/keyboardsync.sh
