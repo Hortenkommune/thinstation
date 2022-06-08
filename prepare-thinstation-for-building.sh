@@ -7,7 +7,7 @@ kernelversion=5.15.41
 
 rm -rf /$prep
 
-git clone --depth 1 https://github.com/Hortenkommune/$basepath /$prep --single-branch --branch master
+git clone --depth 1 https://github.com/Hortenkommune/$basepath /$prep --single-branch --branch beta
 
 cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/hdupdate/hdupdate.service /$basepath/ts/build/packages/hdupdate/etc/systemd/system/hdupdate.service \
@@ -17,6 +17,7 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/fwconf/. /$basepath/ts/build/packages/fwconf/ \
   && cp -TR /$prep/packages/keyboardsync/. /$basepath/ts/build/packages/keyboardsync/ \
   && cp -TR /$prep/packages/ntpsync/. /$basepath/ts/build/packages/ntpsync/ \
+  && cp -TR /$prep/packages/icausb/. /$basepath/ts/build/packages/icausb/ \
   && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
   && cp -TR /$prep/theme/wallpaper.jpg /$basepath/ts/build/backgrounds/wallpaper.jpg \
   && cp -TR /$prep/conf/build.conf /$basepath/ts/build/build.conf.example 
@@ -39,10 +40,11 @@ cat /data/secret >> /$basepath/ts/build/build.conf.example
 
 icabuildurl=$(cat /$basepath/ts/build/build.urls | grep "linuxx")
 icafilename=${icabuildurl#*file://downloads/}
-ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/legacy-workspace-app-for-linux/workspace-app-for-linux-2012.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
+
+ahref=$(curl -s https://www.citrix.com/downloads/workspace-app/legacy-workspace-app-for-linux/workspace-app-for-linux-2112.html | grep linuxx64 | grep tar.gz | sed -r 's/^.+rel="([^"]+)".+$/\1/')
 #IFS=' '
 read -ra ADDR <<< "$ahref"
-tarbLink="${ADDR/"//"/"https://"}"
+tarbLink="${ADDR/"//"/https://}"
 wget ${tarbLink} -O /$basepath/downloads/$icafilename
 
 chmod +x /$basepath/ts/build/packages/keyboardsync/bin/keyboardsync.sh
@@ -59,6 +61,7 @@ fi
 
 cp -TR /$bootimages/pxe/. /data/boot-images/pxe \
   && cp -TR /$bootimages/syslinux/. /data/boot-images/syslinux \
-  && cp -TR /$bootimages/refind-iso/. /data/boot-images/refind-iso
+  && cp -TR /$bootimages/refind-iso/. /data/boot-images/refind-iso \
+  && cp -TR /$prep/conf/default /data/boot-images/pxe/boot/pxelinux/pxelinux.cfg/default
 
 sed -e "s/\${BUILD_VERSION}/${BUILD_VERSION}/" /$prep/conf/network/thinstation.conf.network > /data/boot-images/pxe/thinstation.conf.network
