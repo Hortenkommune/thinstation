@@ -15,7 +15,6 @@ cp -TR /$prep/machine/. /$basepath/ts/build/machine/ \
   && cp -TR /$prep/packages/versionchecker/. /$basepath/ts/build/packages/versionchecker/ \
   && cp -TR /$prep/packages/assetreporter/. /$basepath/ts/build/packages/assetreporter/ \
   && cp -TR /$prep/packages/fwconf/. /$basepath/ts/build/packages/fwconf/ \
-  && cp -TR /$prep/packages/keyboardsync/. /$basepath/ts/build/packages/keyboardsync/ \
   && cp -TR /$prep/packages/ntpsync/. /$basepath/ts/build/packages/ntpsync/ \
   && cp -TR /$prep/packages/icausb/. /$basepath/ts/build/packages/icausb/ \
   && cp -TR /$prep/theme/splash/. /$basepath/ts/build/utils/tools/splash/default/ \
